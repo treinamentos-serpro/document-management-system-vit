@@ -47,7 +47,9 @@ test('upload com sucesso retorna 201 com os metadados do documento', async () =>
   assert.strictEqual(body.owner, 'maria');
   assert.ok(!Number.isNaN(Date.parse(body.uploadedAt)));
   assert.strictEqual(body.storedName, undefined, 'storedName não deve ser exposto');
-  assert.strictEqual(fs.readdirSync(storageDir).length, 1, 'o arquivo deve ser gravado no storage');
+
+  const uploadedFiles = fs.readdirSync(storageDir).filter((name) => !name.startsWith('.'));
+  assert.strictEqual(uploadedFiles.length, 1, 'o arquivo deve ser gravado no storage');
 });
 
 test('upload sem owner assume o dono padrão anonymous', async () => {
