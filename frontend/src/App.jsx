@@ -1,20 +1,22 @@
-// Seed do componente raiz do Document Management System.
-//
-// Este é apenas um ponto de partida mínimo. Durante o Passo 3 você vai usar o
-// Agent Mode do GitHub Copilot para construir os componentes:
-//   - components/UploadComponent
-//   - components/DocumentList
-//   - components/DownloadButton
-// e o serviço services/ que consome a API do backend via fetch.
+import DocumentsPage from './pages/DocumentsPage.jsx';
 
 export default function App() {
   return (
-    <main style={{ fontFamily: 'system-ui, sans-serif', padding: '2rem' }}>
-      <h1>Document Management System</h1>
-      <p>
-        Seed do frontend. Construa a interface durante o Passo 3 usando o Agent
-        Mode do GitHub Copilot.
-      </p>
-    </main>
+    <>
+      <header className="br-header">
+        <div className="container-lg">
+          <div className="header-bottom">
+            <div className="header-info">
+              <h1 className="header-title">Document Management System</h1>
+              <div className="header-subtitle">Envio, listagem e download de documentos</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="main" className="mb-5">
+        <DocumentsPage />
+      </main>
+    </>
   );
 }
